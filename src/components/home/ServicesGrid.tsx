@@ -76,7 +76,7 @@ export default function ServicesGrid() {
 
   const services = [
     {
-      title: "TV.somvilla.com",
+      title: "tv.somvilla.com",
       description: "Access the shared media library through Jellyfin's powerful interface. Compatible with all devices through direct play and transcoding support.",
       icon: TelevisionSimple,
       features: [
@@ -100,10 +100,10 @@ export default function ServicesGrid() {
       ],
       status: "Operational",
       statusColor: "bg-success",
-      url: "http://192.168.1.216:8096"
+      url: "https://tv.somvilla.com"
     },
     {
-      title: "Jelly.somvilla.com",
+      title: "jelly.somvilla.com",
       description: "Submit new content requests through Jellyseerr. Track request status and receive notifications when content becomes available.",
       icon: ListPlus,
       features: [
@@ -127,10 +127,10 @@ export default function ServicesGrid() {
       ],
       status: "Operational",
       statusColor: "bg-success",
-      url: "http://192.168.1.147:5055"
+      url: "https://jelly.somvilla.com"
     },
     {
-      title: "Books.somvilla.com",
+      title: "books.somvilla.com",
       description: "Browse the audiobook collection through Audiobookshelf. Progress syncs across devices for seamless listening.",
       icon: Books,
       features: [

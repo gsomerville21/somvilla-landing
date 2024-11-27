@@ -37,8 +37,8 @@ export async function GET() {
     const RADARR_URL = process.env.RADARR_URL;
     const SONARR_URL = process.env.SONARR_URL;
     const READARR_URL = process.env.READARR_URL;
-    const JELLYFIN_URL = "http://192.168.1.216:8096";
-    const JELLYSEERR_URL = "http://192.168.1.147:5055";
+    const JELLYFIN_URL = process.env.JELLYFIN_URL; 
+    const JELLYSEERR_URL = process.env.JELLYSEERR_URL;
     
     // Get API keys
     const [RADARR_API_KEY, SONARR_API_KEY, READARR_API_KEY] = (process.env.MEDIA_API_KEY || '').split(',');
