@@ -79,21 +79,21 @@ export default function HeroSection() {
   const services = [
     {
       name: 'TV & Movies',
-      description: 'Stream your favorite content with Jellyfin',
+      description: 'Stream the latest content with Jellyfin',
       icon: Play,
       url: 'https://tv.somvilla.com',
       color: 'text-primary'
     },
     {
       name: 'Books',
-      description: 'Access your digital book collection',
+      description: 'Browse the digital book collection',
       icon: Books,
       url: 'https://books.somvilla.com',
       color: 'text-secondary'
     },
     {
       name: 'Audiobooks',
-      description: 'Listen to your audiobook collection',
+      description: 'Explore the audiobook collection',
       icon: Headphones,
       url: 'https://books.somvilla.com',
       color: 'text-accent'
@@ -238,15 +238,15 @@ export default function HeroSection() {
                   variants={itemVariants}
                   className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight"
                 >
-                  Your Family Media Library
+                  The Family Media Hub
                 </motion.h1>
                 
                 <motion.p 
                   variants={itemVariants}
                   className="text-base md:text-xl mb-8 md:mb-12 text-base-content/70 max-w-2xl mx-auto px-4"
                 >
-                  Welcome to our private media collection! Enjoy streaming movies, TV shows, and access our digital 
-                  library of books and audiobooks, all from one place.
+                  Welcome to our shared media collection! The perfect place for family and friends to enjoy movies, 
+                  TV shows, books, and audiobooks - all in one convenient location.
                 </motion.p>
               </div>
 

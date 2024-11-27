@@ -77,14 +77,14 @@ export default function ServicesGrid() {
   const services = [
     {
       title: "TV.somvilla.com",
-      description: "Stream your media library with Jellyfin's powerful interface. Support for direct play and transcoding ensures compatibility across all your devices.",
+      description: "Access the shared media library through Jellyfin's powerful interface. Compatible with all devices through direct play and transcoding support.",
       icon: TelevisionSimple,
       features: [
-        { text: "iOS/Android apps", icon: DeviceMobile },
-        { text: "Apple TV support", icon: Desktop },
-        { text: "Android TV/Google TV", icon: TelevisionSimple },
-        { text: "Direct play support", icon: FilmStrip },
-        { text: "Transcoding available", icon: Gear }
+        { text: "Mobile apps available", icon: DeviceMobile },
+        { text: "Apple TV compatible", icon: Desktop },
+        { text: "Android TV/Google TV ready", icon: TelevisionSimple },
+        { text: "Direct play enabled", icon: FilmStrip },
+        { text: "Transcoding support", icon: Gear }
       ],
       stats: [
         { 
@@ -104,14 +104,14 @@ export default function ServicesGrid() {
     },
     {
       title: "Jelly.somvilla.com",
-      description: "Request new content through Jellyseerr. Keep track of your requests and get notified when content becomes available.",
+      description: "Submit new content requests through Jellyseerr. Track request status and receive notifications when content becomes available.",
       icon: ListPlus,
       features: [
-        { text: "Easy content requests", icon: ListPlus },
-        { text: "Request tracking", icon: Bell },
-        { text: "Automatic notifications", icon: Bell },
-        { text: "Integration with Jellyfin", icon: TelevisionSimple },
-        { text: "Status updates", icon: Bell }
+        { text: "Simple request system", icon: ListPlus },
+        { text: "Request status tracking", icon: Bell },
+        { text: "Instant notifications", icon: Bell },
+        { text: "Jellyfin integration", icon: TelevisionSimple },
+        { text: "Live status updates", icon: Bell }
       ],
       stats: [
         { 
@@ -131,18 +131,18 @@ export default function ServicesGrid() {
     },
     {
       title: "Books.somvilla.com",
-      description: "Access your audiobook collection through Audiobookshelf. Sync progress across devices and manage your listening experience.",
+      description: "Browse the audiobook collection through Audiobookshelf. Progress syncs across devices for seamless listening.",
       icon: Books,
       features: [
-        { text: "Mobile apps available", icon: DeviceMobile },
-        { text: "Progress syncing", icon: Gear },
-        { text: "Kindle integration", icon: Books },
-        { text: "Bookmark support", icon: Bell },
-        { text: "Offline downloads", icon: Download }
+        { text: "Mobile app support", icon: DeviceMobile },
+        { text: "Progress synchronization", icon: Gear },
+        { text: "Kindle compatible", icon: Books },
+        { text: "Bookmark feature", icon: Bell },
+        { text: "Download option", icon: Download }
       ],
       stats: [
         { label: "Total Books", value: "150", icon: Books },
-        { label: "Currently Reading", value: "5", icon: Users }
+        { label: "Active Readers", value: "5", icon: Users }
       ],
       status: "Operational",
       statusColor: "bg-success",
@@ -150,14 +150,14 @@ export default function ServicesGrid() {
     },
     {
       title: "Wiki.somvilla.com",
-      description: "Find comprehensive documentation and guides for all services through WikiJS. Easy to navigate and constantly updated.",
+      description: "Find detailed documentation and guides for all services through WikiJS. Updated regularly with new information.",
       icon: FileText,
       features: [
-        { text: "Detailed guides", icon: FileText },
-        { text: "Search functionality", icon: Bell },
-        { text: "Regular updates", icon: Bell },
-        { text: "Mobile-friendly", icon: DeviceMobile },
-        { text: "Easy navigation", icon: Bell }
+        { text: "Complete guides", icon: FileText },
+        { text: "Search function", icon: Bell },
+        { text: "Regular content updates", icon: Bell },
+        { text: "Mobile optimized", icon: DeviceMobile },
+        { text: "Simple navigation", icon: Bell }
       ],
       stats: [
         { label: "Total Articles", value: "75", icon: FileText },
@@ -180,10 +180,10 @@ export default function ServicesGrid() {
           className="space-y-12 md:space-y-16"
         >
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">Our Services</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">Available Services</h2>
             <p className="text-base-content/70 text-sm md:text-base">
-              Explore our comprehensive suite of media services designed to give you 
-              the best possible experience with your content.
+              A comprehensive suite of media services designed for the whole family. 
+              Each service is carefully maintained to ensure the best experience for everyone.
             </p>
           </div>
 
