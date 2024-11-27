@@ -45,7 +45,7 @@ export default function Logo() {
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent'
       }}>
-        somvilla.com
+        Somvilla
       </span>
     </Link>
   );

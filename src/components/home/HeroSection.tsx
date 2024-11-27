@@ -49,8 +49,8 @@ export default function HeroSection() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        staggerChildren: 0.2
+        duration: 0.4,
+        staggerChildren: 0.1
       }
     }
   };
@@ -63,15 +63,15 @@ export default function HeroSection() {
     }
   };
 
+  // Simplified floating animation for better performance
   const floatingIconVariants = {
-    initial: { y: 0, rotate: 0, scale: 0.8 },
+    initial: { y: 0 },
     animate: (custom: number) => ({
-      y: [-10, 10, -10],
-      rotate: [0, custom, 0],
+      y: [-5, 5, -5],
       transition: {
         duration: 4,
         repeat: Infinity,
-        ease: "easeInOut"
+        ease: "linear"
       }
     })
   };
@@ -125,25 +125,25 @@ export default function HeroSection() {
     { 
       label: 'Books', 
       value: loading ? '...' : stats?.books.toLocaleString() || '0',
-      subValue: loading ? '...' : stats?.booksSize || '0 B',
+      ssubValue: loading ? '...' : '',
       icon: Books,
       color: 'text-primary'
     },
     { 
       label: 'Audiobooks', 
       value: loading ? '...' : stats?.audiobooks.toLocaleString() || '0',
-      subValue: loading ? '...' : stats?.audiobooksSize || '0 B',
+      subValue: loading ? '...' : '',
       icon: Headphones,
       color: 'text-secondary'
     }
   ];
 
   return (
-    <section className="relative bg-base-200 min-h-[calc(100vh-4rem)] overflow-hidden">
-      {/* Hero Pattern Background */}
-      <div className="absolute inset-0">
+    <section className="relative bg-base-200 min-h-[calc(100vh-4rem)]">
+      {/* Hero Pattern Background - Optimized */}
+      <div className="absolute inset-0 will-change-[background-image]">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5" />
-        <div className="absolute inset-0" style={{
+        <div className="absolute inset-0 opacity-50 md:opacity-100" style={{
           backgroundImage: `radial-gradient(circle at 25px 25px, rgba(255,255,255,0.1) 2%, transparent 0%)`,
           backgroundSize: '50px 50px'
         }} />
@@ -154,8 +154,8 @@ export default function HeroSection() {
         <motion.div
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 0.1, x: 0 }}
-          transition={{ duration: 1 }}
-          className="relative"
+          transition={{ duration: 0.8 }}
+          className="relative will-change-transform"
         >
           <Desktop size={400} weight="fill" className="text-primary" />
           <div className="absolute top-1/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2">
@@ -164,14 +164,14 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Floating Icons - Hidden on mobile */}
-      <div className="absolute inset-0 overflow-hidden hidden md:block">
+      {/* Floating Icons - Hidden on mobile, simplified animation */}
+      <div className="absolute inset-0 overflow-hidden hidden md:block pointer-events-none">
         <motion.div
           custom={10}
           initial="initial"
           animate="animate"
           variants={floatingIconVariants}
-          className="absolute top-20 left-[15%] text-primary/20"
+          className="absolute top-20 left-[15%] text-primary/20 will-change-transform"
         >
           <VideoCamera size={120} weight="fill" />
         </motion.div>
@@ -180,7 +180,7 @@ export default function HeroSection() {
           initial="initial"
           animate="animate"
           variants={floatingIconVariants}
-          className="absolute top-40 right-[15%] text-secondary/20"
+          className="absolute top-40 right-[15%] text-secondary/20 will-change-transform"
         >
           <MonitorPlay size={100} weight="fill" />
         </motion.div>
@@ -189,7 +189,7 @@ export default function HeroSection() {
           initial="initial"
           animate="animate"
           variants={floatingIconVariants}
-          className="absolute bottom-20 left-[25%] text-accent/20"
+          className="absolute bottom-20 left-[25%] text-accent/20 will-change-transform"
         >
           <Headphones size={80} weight="fill" />
         </motion.div>
@@ -198,7 +198,7 @@ export default function HeroSection() {
           initial="initial"
           animate="animate"
           variants={floatingIconVariants}
-          className="absolute bottom-40 right-[25%] text-primary/20"
+          className="absolute bottom-40 right-[25%] text-primary/20 will-change-transform"
         >
           <Devices size={90} weight="fill" />
         </motion.div>
@@ -250,7 +250,7 @@ export default function HeroSection() {
                 </motion.p>
               </div>
 
-              {/* Quick Access Grid */}
+              {/* Quick Access Grid - Optimized backdrop-blur */}
               <motion.div 
                 variants={containerVariants}
                 className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8 px-4"
@@ -260,7 +260,7 @@ export default function HeroSection() {
                     key={service.name}
                     href={service.url}
                     variants={itemVariants}
-                    className="card bg-base-100/90 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group h-full border border-base-content/5"
+                    className="card bg-base-100/90 md:backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group h-full border border-base-content/5 will-change-transform"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -278,7 +278,7 @@ export default function HeroSection() {
                 ))}
               </motion.div>
 
-              {/* Stats Section */}
+              {/* Stats Section - Optimized backdrop-blur */}
               <motion.div
                 variants={containerVariants}
                 className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-8 md:mb-12 px-4"
@@ -287,7 +287,7 @@ export default function HeroSection() {
                   <motion.div
                     key={index}
                     variants={itemVariants}
-                    className="flex flex-col items-center p-4 md:p-6 rounded-xl bg-base-300/50 backdrop-blur-sm border border-base-content/5 hover:bg-base-300/70 transition-colors"
+                    className="flex flex-col items-center p-4 md:p-6 rounded-xl bg-base-300/50 md:backdrop-blur-sm border border-base-content/5 hover:bg-base-300/70 transition-colors will-change-transform"
                     whileHover={{ scale: 1.02 }}
                   >
                     <stat.icon size={28} className={stat.color} weight="fill" />
