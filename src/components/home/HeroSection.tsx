@@ -322,7 +322,7 @@ export default function HeroSection() {
                   Explore Services
                 </Link>
                 <Link 
-                  href="#guides"
+                  href="/guides"
                   className="btn btn-outline w-full sm:w-auto"
                 >
                   View Guides

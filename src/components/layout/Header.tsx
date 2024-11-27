@@ -52,7 +52,7 @@ export default function Header() {
   const menuItems = [
     { href: '/', label: 'Home', icon: House },
     { href: '#services', label: 'Services', icon: TelevisionSimple },
-    { href: 'https://wiki.somvilla.com', label: 'Documentation', icon: FileText },
+    { href: '/guides', label: 'Documentation', icon: FileText },
     { href: '#faq', label: 'FAQ', icon: Books },
   ];
 
