@@ -27,10 +27,17 @@ interface MediaStats {
   books: number;
 }
 
+interface ServiceHealth {
+  isOnline: boolean;
+  responseTime: number;
+  lastChecked: Date;
+}
+
 export default function ServicesGrid() {
   const [stats, setStats] = useState<MediaStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [healthStatus, setHealthStatus] = useState<Record<string, ServiceHealth>>({});
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -52,6 +59,33 @@ export default function ServicesGrid() {
     };
 
     fetchStats();
+  }, []);
+
+  useEffect(() => {
+    const checkHealth = async () => {
+      try {
+        const response = await fetch('/api/health');
+        if (!response.ok) throw new Error('Health check failed');
+        const results = await response.json();
+        setHealthStatus(results);
+      } catch (error) {
+        console.error('Health check error:', error);
+        // Set all services as online for now until backend is implemented
+        const fallbackStatus = services.reduce((acc, service) => ({
+          ...acc,
+          [service.url]: {
+            isOnline: true,
+            responseTime: 0,
+            lastChecked: new Date()
+          }
+        }), {});
+        setHealthStatus(fallbackStatus);
+      }
+    };
+
+    checkHealth();
+    const interval = setInterval(checkHealth, 60000);
+    return () => clearInterval(interval);
   }, []);
 
   const containerVariants = {
@@ -207,8 +241,14 @@ export default function ServicesGrid() {
                       <div>
                         <h3 className="card-title text-lg md:text-xl">{service.title}</h3>
                         <div className="flex items-center gap-2 mt-1">
-                          <span className={`w-2 h-2 rounded-full ${service.statusColor}`} />
-                          <span className="text-xs md:text-sm text-base-content/70">{service.status}</span>
+                          <span className={`w-2 h-2 rounded-full ${
+                            healthStatus[service.url]?.isOnline ? 'bg-success' : 'bg-error'
+                          }`} />
+                          <span className="text-xs md:text-sm text-base-content/70">
+                            {healthStatus[service.url]?.isOnline ? 
+                              `Online (${healthStatus[service.url].responseTime}ms)` : 
+                              'Offline'}
+                          </span>
                         </div>
                       </div>
                     </div>

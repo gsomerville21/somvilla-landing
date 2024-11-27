@@ -10,9 +10,12 @@
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.7",
+    "@vercel/analytics": "^1.0.0",
     "daisyui": "^4.12.14",
     "framer-motion": "^11.11.17",
     "next": "^15.0.3",
+    "next-plausible": "^3.0.0",
+    "next-seo": "^6.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "somvilla": "file:"
