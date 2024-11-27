@@ -24,6 +24,7 @@ interface MediaStats {
   totalUsers: number;
   pendingRequests: number;
   processingRequests: number;
+  books: number;
 }
 
 export default function ServicesGrid() {
@@ -131,7 +132,7 @@ export default function ServicesGrid() {
     },
     {
       title: "books.somvilla.com",
-      description: "Browse the audiobook collection through Audiobookshelf. Progress syncs across devices for seamless listening.",
+      description: "Browse our extensive collection of books and audiobooks through Audiobookshelf. Progress syncs across devices for seamless reading and listening.",
       icon: Books,
       features: [
         { text: "Mobile app support", icon: DeviceMobile },
@@ -141,15 +142,16 @@ export default function ServicesGrid() {
         { text: "Download option", icon: Download }
       ],
       stats: [
-        { label: "Total Books", value: "150", icon: Books },
-        { label: "Active Readers", value: "5", icon: Users }
+        { label: "Total Books", value: loading ? "..." : stats?.books.toString() || "0", icon: Books },
+        { label: "Active Readers", value: loading ? "..." : stats?.totalUsers.toString() || "0",  icon: Users },
+        
       ],
       status: "Operational",
       statusColor: "bg-success",
       url: "https://books.somvilla.com"
     },
     {
-      title: "Wiki.somvilla.com",
+      title: "wiki.somvilla.com",
       description: "Find detailed documentation and guides for all services through WikiJS. Updated regularly with new information.",
       icon: FileText,
       features: [
